@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine’s Surprise 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sacramento&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 3rem;
+      margin-top: 50px;
+      animation: heartBeat 1s infinite;
+    }
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    p {
+      font-size: 1.2rem;
+      margin: 20px;
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      background-color: #ff2d95;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 40px;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: scale(1.2);
+    }
+    .hidden-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.5rem;
+      color: #fff200;
+    }
+    .heart {
+      position: absolute;
+      color: #ff2d95;
+      font-size: 2rem;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Happy Valentine’s Day, Babyyy! 💖</h1>
+
+  <p>Happy Valentine’s, my love 😘💗 I know we’re not together today, but I want you to know that every moment I think of you, my heart just smiles 😏❤️ You make everything brighter, happier, and a little crazier… in the best way 😇 I wish I could be there to hold you close, make you laugh, and remind you how insanely special you are to me 💕 Until then, just know you’re mine, I’m yours, and you make every day feel like Valentine’s 😍💖</p>
+
+  <button onclick="revealMessage()">Click for a secret message 😏</button>
+  <div class="hidden-message" id="secretMessage">
+    You’re my favorite troll AND my forever valentine! 🥰💘
+  </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+      heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+      heart.innerText = '💖';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    function revealMessage() {
+      const msg = document.getElementById('secretMessage');
+      msg.style.display = 'block';
+    }
+  </script>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+  </audio>
+
+</body>
+</html>
